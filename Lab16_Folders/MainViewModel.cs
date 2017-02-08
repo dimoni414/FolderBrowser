@@ -71,8 +71,8 @@ namespace Lab16_Folders
                 return;
             }
 
-            var qwe = new CreateDirectoryService(folderBrowser.SelectedPath);
-            qwe.AddAllFolders(_rootFolder);
+            var directoryService = new CreateDirectoryService(folderBrowser.SelectedPath);
+            directoryService.AddAllFolders(_rootFolder);
         }
 
         #endregion Functions
