@@ -1,0 +1,94 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Lab16_Folders.Resources">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Images.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <ControlTemplate x:Key="validationFailed">
+        <StackPanel Orientation="Vertical">
+            <Border
+                BorderBrush="Red"
+                BorderThickness="3"
+                CornerRadius="1"
+                ToolTip="Имя файла не должно содержать следующих знаков:  \ / : &quot; * ? &lt; &gt;">
+                <AdornedElementPlaceholder />
+            </Border>
+        </StackPanel>
+    </ControlTemplate>
+
+    <Style x:Key="DeleteAnimation">
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                <StopStoryboard BeginStoryboardName="LeaveOnFolder" />
+                <BeginStoryboard Name="EnterOnFolder">
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="Width"
+                            To="20"
+                            Duration="0:0:0.5">
+                            <DoubleAnimation.EasingFunction>
+                                <CubicEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                <StopStoryboard BeginStoryboardName="EnterOnFolder" />
+                <BeginStoryboard Name="LeaveOnFolder">
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="Width"
+                            To="15"
+                            Duration="0:0:0.5">
+                            <DoubleAnimation.EasingFunction>
+                                <CubicEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="FolderAnimation">
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                <StopStoryboard BeginStoryboardName="LeaveOnFolder" />
+                <BeginStoryboard Name="EnterOnFolder">
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="Width"
+                            To="60"
+                            Duration="0:0:0.5">
+                            <DoubleAnimation.EasingFunction>
+                                <BackEase Amplitude="1" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                <StopStoryboard BeginStoryboardName="EnterOnFolder" />
+                <BeginStoryboard Name="LeaveOnFolder">
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetProperty="Width"
+                            To="50"
+                            Duration="0:0:1">
+                            <DoubleAnimation.EasingFunction>
+                                <PowerEase Power="10" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+
+    </Style>
+</ResourceDictionary>
+
+
+

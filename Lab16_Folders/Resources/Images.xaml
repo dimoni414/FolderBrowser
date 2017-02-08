@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Lab16_Folders.Resources">
+    <BitmapImage x:Key="AddFolder" UriSource="pack://application:,,,/Resources/Add.png" />
+    <BitmapImage x:Key="Folder" UriSource="pack://application:,,,/Resources/Folder.png" />
+    <BitmapImage x:Key="DeleteFolder" UriSource="pack://application:,,,/Resources/Delete.png" />
+    <BitmapImage x:Key="BackFolder" UriSource="pack://application:,,,/Resources/Back.png" />
+    <BitmapImage x:Key="CloudComputingFolder" UriSource="pack://application:,,,/Resources/CloudComputing.png" />
+    <BitmapImage x:Key="Home" UriSource="pack://application:,,,/Resources/Home.png" />
+    <BitmapImage x:Key="Icon" UriSource="pack://application:,,,/Resources/icon.ico" />
+
+
+
+</ResourceDictionary>
