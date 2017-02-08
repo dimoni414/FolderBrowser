@@ -1,5 +1,6 @@
 ﻿using Mvvm.Core.Abstract;
 using Mvvm.Core.ViewModels;
+using System.IO;
 using System.Windows.Forms;
 using System.Windows.Input;
 
@@ -61,6 +62,12 @@ namespace Lab16_Folders
             var resultDialog = folderBrowser.ShowDialog();
             if (resultDialog != DialogResult.OK || string.IsNullOrWhiteSpace(folderBrowser.SelectedPath))
             {
+                return;
+            }
+            var dir = new DirectoryInfo(folderBrowser.SelectedPath);
+            if ((dir.Attributes & FileAttributes.System) != FileAttributes.System)
+            {
+                MessageBox.Show("Выбраная вами директория является системной. Сюда невозможно проецировать файлы.");
                 return;
             }
 
