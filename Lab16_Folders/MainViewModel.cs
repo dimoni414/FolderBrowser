@@ -7,6 +7,15 @@ namespace Lab16_Folders
 {
     public class MainViewModel : ViewModelBase
     {
+        #region Commands
+
+        public ICommand CreateRealFolderCommand { get; set; }
+        public ICommand HomeFolderCommand { get; set; }
+
+        #endregion Commands
+
+        #region Properties
+
         public FolderTree Folder
         {
             get { return _folder; }
@@ -28,10 +37,9 @@ namespace Lab16_Folders
             set { UpdateValue(value, ref _startNameFolder); }
         }
 
-        public ICommand CreateRealFolderCommand { get; set; }
-        public ICommand HomeFolderCommand { get; set; }
+        #endregion Properties
 
-        //public ICommand  { get; set; }
+        #region Functions
 
         public MainViewModel(ICommandFactory commandFactory)
         {
@@ -41,10 +49,10 @@ namespace Lab16_Folders
             StartNameFolder = "Папка";
             CreateRealFolderCommand = commandFactory.CreateCommand(CreateRealDirectory);
             HomeFolderCommand = commandFactory.CreateCommand(o =>
-             {
-                 Folder = _rootFolder;
-                 PathFolders = _rootFolder.Name;
-             });
+            {
+                Folder = _rootFolder;
+                PathFolders = _rootFolder.Name;
+            });
         }
 
         private void CreateRealDirectory()
@@ -60,9 +68,15 @@ namespace Lab16_Folders
             qwe.AddAllFolders(_rootFolder);
         }
 
+        #endregion Functions
+
+        #region Fields
+
         private FolderTree _folder;
         private string _pathFolders;
         private readonly FolderTree _rootFolder;
         private string _startNameFolder;
+
+        #endregion Fields
     }
 }
